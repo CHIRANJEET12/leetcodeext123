@@ -30,7 +30,13 @@ const ChatWidget: React.FC = () => {
         setInput(e.target.value);
     };
 
-    const handleSend = async () => {
+    const handleSend = async (e?: React.KeyboardEvent | React.MouseEvent) => {
+
+        if(e && 'key' in e){
+            if(e.key!=='Enter') return;
+            e.preventDefault();
+        }
+
         if (input.trim() === '') return;
         
 
@@ -81,7 +87,7 @@ const ChatWidget: React.FC = () => {
                     zIndex: 10000,
                 }}
             >
-                Chat With AI
+                plumAI
             </button>
 
             <div
@@ -111,7 +117,7 @@ const ChatWidget: React.FC = () => {
                         fontSize: '18px',
                     }}
                 >
-                    <span>Chat With AI</span>
+                    <span>plumAI</span>
                     <button
                         onClick={toggleChat}
                         className="bg-black ml-4 text-white font-medium p-1 rounded hover:bg-gray-200 transition"
@@ -186,6 +192,7 @@ const ChatWidget: React.FC = () => {
                     />
                     <button
                         onClick={handleSend}
+                        onKeyDown={handleSend}
                         style={{
                             marginLeft: '10px',
                             padding: '8px 15px',
