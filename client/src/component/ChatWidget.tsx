@@ -32,6 +32,7 @@ const ChatWidget: React.FC = () => {
 
     const handleSend = async () => {
         if (input.trim() === '') return;
+        
 
         const newMessages = [...messages, { text: input, sender: 'user' }];
         setMessages(newMessages as Messages[]);
@@ -72,7 +73,7 @@ const ChatWidget: React.FC = () => {
                     bottom: '20px',
                     right: '20px',
                     padding: '10px 15px',
-                    backgroundColor: '#007bff',
+                    backgroundColor: '#28C244',
                     color: 'white',
                     border: 'none',
                     borderRadius: '5px',
@@ -90,7 +91,7 @@ const ChatWidget: React.FC = () => {
                     right: isOpen ? '0' : '-350px',
                     width: '350px',
                     height: '100%',
-                    backgroundColor: 'black',
+                    backgroundColor: '#0F0F0F',
                     boxShadow: '-2px 0 8px rgba(0,0,0,0.2)',
                     transition: 'right 0.3s ease',
                     zIndex: 9999,
@@ -98,21 +99,27 @@ const ChatWidget: React.FC = () => {
                     flexDirection: 'column',
                 }}
             >
-                <div style={{
-                    padding: '15px',
-                    backgroundColor: 'green',
-                    color: 'white',
-                    fontWeight: 'bold',
-                    fontSize: '18px',
-                }}>
-                    Chat With AI
+                <div
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        padding: '5px',
+                        backgroundColor: '#28C244',
+                        color: 'white',
+                        fontWeight: 'bold',
+                        fontSize: '18px',
+                    }}
+                >
+                    <span>Chat With AI</span>
                     <button
                         onClick={toggleChat}
-                        className="bg-blue-600 text-black font-medium px-3 py-1 rounded hover:bg-gray-200 transition"
+                        className="bg-black ml-4 text-white font-medium p-1 rounded hover:bg-gray-200 transition"
                     >
                         Close
                     </button>
                 </div>
+
 
                 <div style={{
                     flex: 1,
@@ -174,6 +181,7 @@ const ChatWidget: React.FC = () => {
                             flex: 1,
                             padding: '8px',
                             fontSize: '16px',
+                            borderRadius: '15px 50px 30px'
                         }}
                     />
                     <button
@@ -181,11 +189,12 @@ const ChatWidget: React.FC = () => {
                         style={{
                             marginLeft: '10px',
                             padding: '8px 15px',
-                            backgroundColor: 'green',
+                            backgroundColor: '#28C244',
                             color: 'black',
                             border: 'none',
                             cursor: 'pointer',
                             fontSize: '16px',
+                            borderRadius: '15px 50px 30px'
                         }}
                     >
                         Send
